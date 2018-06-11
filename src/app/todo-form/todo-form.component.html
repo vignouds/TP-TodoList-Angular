@@ -1,3 +1,6 @@
-<p>
-  todo-form works!
-</p>
+<div>
+  <label for="mc">Sample checkbox</label>
+  <input type="checkbox" name="mc" id="mc" [(ngModel)]="todo.isDone">
+  <p>Valeur de la checkbox: {{todo.isDone}} </p>
+  <button (click)="handleClick()">Click me</button>
+</div>

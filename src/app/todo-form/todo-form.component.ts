@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../classes/Todo';
 
 @Component({
   selector: 'app-todo-form',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoFormComponent implements OnInit {
 
+  todo:Todo = new Todo("", false);
+
   constructor() { }
+
+  handleClick() {
+    console.log('TODO', this.todo);
+  }
 
   ngOnInit() {
   }
