@@ -16,6 +16,6 @@ export default class TodoApi {
     }
 
     removeTodo(todoDel: Todo) {
-        this._todos = this._todos.filter((todo) => todoDel != todo);
+        this._todos.splice(this._todos.indexOf(todoDel), 1);
     }
 }

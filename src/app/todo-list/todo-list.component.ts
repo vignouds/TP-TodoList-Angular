@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../classes/Todo';
+import TodoServices from '../services/TodoServices';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
+  providers: [
+    TodoServices
+  ]
 })
 export class TodoListComponent implements OnInit {
   private _todos: Array<Todo>;
-  constructor() { }
+  constructor(private todoService: TodoServices) { }
 
   /**
    * Getter todos
@@ -27,13 +31,6 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._todos = [
-      new Todo("Première tache", true),
-      new Todo("Deuxième tache", false),
-      new Todo("Troisième tache", false),
-      new Todo("Quatrième tache", true),
-      new Todo("Cinquième tache", false),
-      null
-    ];
+    this.todoService.getTodos().then(value => this._todos = value);
   }
 }
