@@ -27,13 +27,12 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit() {
-    let todo1: Todo = new Todo("Première tache", true);
-    let todo2: Todo = new Todo("Deuxième tache", false);
-    let todo3: Todo = new Todo("Troisième tache", false);
-    let todo4: Todo = new Todo("Quatrième tache", true);
-    let todo5: Todo = new Todo("Cinquième tache", false);
-
-    this._todos = [todo1, todo2, todo3, todo4, todo5]
+    this._todos = [
+      new Todo("Première tache", true),
+      new Todo("Deuxième tache", false),
+      new Todo("Troisième tache", false),
+      new Todo("Quatrième tache", true),
+      new Todo("Cinquième tache", false)
+    ];
   }
-
 }
