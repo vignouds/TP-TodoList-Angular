@@ -33,4 +33,8 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
     this.todoService.getTodos().then(value => this._todos = value);
   }
+
+  refreshList() {
+    this.todoService.getTodos().then(value => this._todos = value);
+  }
 }
