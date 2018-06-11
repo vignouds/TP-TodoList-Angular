@@ -32,7 +32,8 @@ export class TodoListComponent implements OnInit {
       new Todo("Deuxième tache", false),
       new Todo("Troisième tache", false),
       new Todo("Quatrième tache", true),
-      new Todo("Cinquième tache", false)
+      new Todo("Cinquième tache", false),
+      null
     ];
   }
 }
