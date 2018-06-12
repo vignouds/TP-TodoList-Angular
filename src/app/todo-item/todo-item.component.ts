@@ -22,6 +22,7 @@ export class TodoItemComponent implements OnInit {
 
   barTitle() {
     this.todo.isDone = !this.todo.isDone;
+    this.todoService.updateTodo(this.todo);
   }
 
   deleteTodo() {

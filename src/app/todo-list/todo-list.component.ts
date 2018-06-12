@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
 import { Todo } from '../classes/Todo';
 import TodoServices from '../services/TodoServices';
 
@@ -7,30 +8,22 @@ import TodoServices from '../services/TodoServices';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css'],
   providers: [
-    TodoServices
+    TodoServices,
   ]
 })
 export class TodoListComponent implements OnInit {
-  private _todos: Array<Todo>;
-  constructor(private todoService: TodoServices) { }
+  private _todos: Observable<Array<Todo>>;
+  constructor(private todoServices: TodoServices) { }
 
-  /**
-   * Getter todos
-   * @return {Array<Todo>}
-   */
-  public get todos(): Array<Todo> {
+  public get todos(): Observable<Array<Todo>> {
     return this._todos;
   }
 
-  /**
-   * Setter todos
-   * @param {Array<Todo>} value
-   */
-  public set todos(value: Array<Todo>) {
+  public set todos(value: Observable<Array<Todo>>) {
     this._todos = value;
   }
 
   ngOnInit() {
-    this.todoService.getTodos().then(value => this._todos = value);
+    this._todos =  this.todoServices.getTodosFromServer();
   }
 }
